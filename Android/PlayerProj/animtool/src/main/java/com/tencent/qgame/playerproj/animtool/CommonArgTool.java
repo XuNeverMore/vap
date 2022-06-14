@@ -1,5 +1,7 @@
 package com.tencent.qgame.playerproj.animtool;
 
+import static com.tencent.qgame.playerproj.animtool.vapx.GetMaskFrame.FORMAT_PNG_NAME;
+
 import com.tencent.qgame.playerproj.animtool.vapx.SrcSet;
 
 import java.awt.image.BufferedImage;
@@ -91,9 +93,9 @@ class CommonArgTool {
         }
 
         // 检查第一帧
-        File firstFrame = new File(commonArg.inputPath + "000.png");
+        File firstFrame = new File(commonArg.inputPath + "0000.png");
         if (!firstFrame.exists()) {
-            TLog.e(TAG, "first frame 000.png does not exist");
+            TLog.e(TAG, "first frame 0000.png does not exist");
             return false;
         }
         // 获取视频高度
@@ -154,8 +156,8 @@ class CommonArgTool {
 
         // 获取总帧数
         commonArg.totalFrame = 0;
-        for (int i=0; i<=999; i++) {
-            File frameFile = new File(commonArg.inputPath + String.format("%03d", i) + ".png");
+        for (int i=0; i<=9999; i++) {
+            File frameFile = new File(commonArg.inputPath + String.format(FORMAT_PNG_NAME, i) + ".png");
             // 顺序检查
             if (!frameFile.exists()) {
                 break;

@@ -18,6 +18,8 @@ public class GetMaskFrame {
 
     private static final String TAG = "GetMaskFrame";
 
+    public static final String FORMAT_PNG_NAME = "%04d";
+
     public FrameSet.FrameObj getFrameObj(int frameIndex, CommonArg commonArg, int[] outputArgb) throws Exception {
 
         FrameSet.FrameObj frameObj = new FrameSet.FrameObj();
@@ -59,7 +61,7 @@ public class GetMaskFrame {
 
 
     private FrameSet.Frame getFrame(int frameIndex, SrcSet.Src src, int[] outputArgb, int outW, int outH, int x, int y, int startX, int lastMaxY) throws Exception {
-        File inputFile = new File(src.srcPath  + String.format("%03d", frameIndex)+".png");
+        File inputFile = new File(src.srcPath  + String.format(FORMAT_PNG_NAME, frameIndex)+".png");
         if (!inputFile.exists()) {
             return null;
         }
